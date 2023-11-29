@@ -7,19 +7,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
-    private WebDriver driver;
-    private WebDriverWait wait;
-
     private final String username = "Admin";
     private final String password = "admin123";
 
-    public LoginPage(WebDriver driver){
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, 10);
-        login();
-    }
 
-    public void login() {
+    public void login(WebDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+
         WebElement usernameInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("input[name='username']")));
         usernameInput.sendKeys(username);
 
